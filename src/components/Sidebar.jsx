@@ -17,12 +17,12 @@ const Sidebar = () => {
   ];
 
   return (
-    <div className="flex mt-1">
+    <div className="flex mt-1 z-20">
       {/* Sidebar */}
       <div
         className={`${
           isOpen ? "w-64" : "w-16"
-        } h-screen bg-sky-400 text-white p-4 rounded-r-lg transition-all duration-500`}
+        } bg-sky-400 text-white p-4 rounded-r-lg transition-all duration-500`}
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
@@ -37,7 +37,7 @@ const Sidebar = () => {
               key={index}
               to={item.path}
               title={item.title}
-              className="flex items-center gap-3 p-2 rounded hover:bg-sky-500"
+              className="flex text-xl items-center gap-3 p-2 rounded hover:bg-sky-500"
             >
               {item.icon}
               {isOpen && <span>{item.name}</span>}
