@@ -1,32 +1,29 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { GiMedicines } from "react-icons/gi";
 import { RiPassExpiredLine } from "react-icons/ri";
 import { MdDashboard, MdReportProblem } from "react-icons/md";
 import { IoMdSettings } from "react-icons/io";
 
-const Sidebar = () => {
-  const [isOpen, setIsOpen] = useState(true);
-
+const Sidebar = ({ isOpen, setIsOpen }) => {
   const menuItems = [
-    { name: "Dashboard", icon: <MdDashboard />, path: "/" , title:"Dashboard" },
-    { name: "Medicine", icon: <GiMedicines />, path: "/medicine", title:"Medicine" },
-    { name: "Expiry", icon: <RiPassExpiredLine />, path: "/expiry",title:"Expiry" },
-    { name: "Reports", icon: <MdReportProblem />, path: "/reports", title:"Reports" },
-    { name: "Setting", icon: <IoMdSettings />, path: "/settings",title:"Setting" },
+    { name: "Dashboard", icon: <MdDashboard />, path: "/", title: "Dashboard" },
+    { name: "Medicine", icon: <GiMedicines />, path: "/medicine", title: "Medicine" },
+    { name: "Expiry", icon: <RiPassExpiredLine />, path: "/expiry", title: "Expiry" },
+    { name: "Reports", icon: <MdReportProblem />, path: "/reports", title: "Reports" },
+    { name: "Setting", icon: <IoMdSettings />, path: "/settings", title: "Setting" },
   ];
 
   return (
-    <div className="flex mt-1 z-20">
-      {/* Sidebar */}
+    <div className="fixed top-0 left-0 h-screen md:z-50">
       <div
         className={`${
           isOpen ? "w-64" : "w-16"
-        } bg-sky-400 text-white p-4 rounded-r-lg transition-all duration-500`}
+        } bg-sky-400 text-white p-4 rounded-r-lg transition-all duration-500 h-full`}
       >
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="mb-6 p-2 bg-sky-600 text-white rounded font-[Poppins] font-bold w-full"
+          className="mb-6 p-2 bg-sky-600 text-white rounded font-[Poppins] font-bold w-full mt-[50px]"
         >
           {isOpen ? "<" : ">"}
         </button>

@@ -5,7 +5,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <div className='w-full bg-sky-400 flex items-center justify-between py-2 px-4 z-50'>
+    <div className='w-full bg-sky-400 flex items-center justify-around py-2 px-4 z-50'>
       {/* Logo */}
       <div className="logo flex gap-3 items-center">
         <img src="./icons/logo.png" className='h-12 w-12 object-cover' alt="Logo" />
@@ -34,7 +34,7 @@ const Navbar = () => {
 
       {/* Dropdown */}
       {isOpen && (
-        <div className='absolute top-14 right-4 flex flex-col bg-white shadow-md rounded-md p-3 w-40'>
+        <div className='absolute top-14 md:right-70 right-10 flex flex-col bg-white shadow-md rounded-md p-3 w-40'>
           <Link to="/profile" className="hover:bg-sky-100 p-2 rounded">
             Edit Profile
           </Link>

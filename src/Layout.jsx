@@ -1,21 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Sidebar from "./components/Sidebar.jsx"
-import Home from "./components/Home.jsx"
 import Navbar from "./components/Navbar"
 import { Outlet } from 'react-router'
+
 const Layout = () => {
-    return (
-        <div className="flex flex-col h-screen">
-            <Navbar />
-            <div className="flex flex-1">
-                <Sidebar className="z-30" />
-                <main className="flex-1 p-4 bg-gray-50 overflow-y-auto z-0">
-                    <Outlet />
-                </main>
-            </div>
-            {/* <footer /> */}
-        </div>
-    )
+  const [isOpen, setIsOpen] = useState(true);
+
+  return (
+    <div className="flex flex-col h-screen">
+      <Navbar />
+      <div className="flex flex-1">
+        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen} />
+        <main
+          className={`flex-1 p-4 bg-gray-50 overflow-y-auto transition-all duration-500 ${
+            isOpen ? "ml-64" : "ml-16"
+          }`}
+        >
+          <Outlet />
+        </main>
+      </div>
+    </div>
+  )
 }
 
 export default Layout
